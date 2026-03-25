@@ -7,7 +7,7 @@ interface Props {
   ogImage?: string;
 }
 
-const { title, description = 'Building apps, tools & digital products in Vienna.', ogImage = '/og.png' } = Astro.props;
+const { title, description = 'Building apps, tools & digital products in Vienna.', ogImage = '/og.svg' } = Astro.props;
 const pageTitle = title === 'Home' ? 'Nico Grim' : `${title} — Nico Grim`;
 ---
 
@@ -34,5 +34,9 @@ const pageTitle = title === 'Home' ? 'Nico Grim' : `${title} — Nico Grim`;
   </head>
   <body>
     <slot />
+    <script>
+      import { inject } from '@vercel/analytics';
+      inject();
+    </script>
   </body>
 </html>

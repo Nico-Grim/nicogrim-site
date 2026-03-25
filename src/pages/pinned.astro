@@ -12,48 +12,46 @@ const features = [
 
 const screens = [
   {
-    src: '/images/pinned/map.jpg', alt: 'World Map', title: 'World Map',
-    de: 'Deine persönliche Weltkarte. Markiere jedes Land und jede Stadt die du besucht hast — farbkodiert nach Status.',
-    en: 'Your personal world map. Mark every country and city you\'ve visited — color-coded by status.',
+    src: '/images/pinned/map.jpg', alt: 'World Map', title: 'Your World. Your Map.',
+    de: 'Jede Reise hinterlässt eine Spur. Sieh auf einen Blick, wo du schon warst — und wo du noch hin willst. Deine Weltkarte wächst mit jedem Abenteuer.',
+    en: 'Every trip leaves a mark. See at a glance where you\'ve been — and where you want to go next. Your world map grows with every adventure.',
     bullets: [
-      { de: 'Länder & Städte markieren', en: 'Mark countries & cities' },
-      { de: '4 Status-Typen: Besucht, Wunsch, Leben, Lebte', en: '4 status types: Visited, Wishlist, Living, Lived' },
-      { de: 'Suche nach Ländern & Städten', en: 'Search for countries & cities' },
-      { de: 'Routen zwischen Orten anzeigen', en: 'Show routes between places' },
+      { de: '193 Länder, tausende Städte', en: '193 countries, thousands of cities' },
+      { de: 'Besucht, Wunschziel, Zuhause — alles farbkodiert', en: 'Visited, wishlist, home — all color-coded' },
+      { de: 'Routen & Entfernungen auf der Karte', en: 'Routes & distances on the map' },
     ],
     glow: 'rgba(60, 180, 90, 0.06)',
   },
   {
-    src: '/images/pinned/globe.jpg', alt: '3D Globe', title: '3D Globe',
-    de: 'Sieh deine Reisen aus einer ganz neuen Perspektive — auf einem interaktiven 3D-Globus.',
-    en: 'See your travels from a whole new perspective — on an interactive 3D globe.',
+    src: '/images/pinned/globe.jpg', alt: '3D Globe', title: 'The Big Picture.',
+    de: 'Dreh die Welt. Zoom rein. Sieh deine Reisen so, wie sie wirklich sind — auf einem Globus, nicht flachgedrückt auf einer Karte.',
+    en: 'Spin the world. Zoom in. See your travels as they really are — on a globe, not flattened on a map.',
     bullets: [
-      { de: 'Drehen, zoomen, entdecken', en: 'Rotate, zoom, explore' },
-      { de: 'Alle markierten Länder farbig hervorgehoben', en: 'All marked countries highlighted in color' },
-      { de: 'Zwischen Karte und Globus wechseln', en: 'Switch between map and globe' },
+      { de: 'Interaktiver 3D-Globus', en: 'Interactive 3D globe' },
+      { de: 'Deine Länder leuchten hervor', en: 'Your countries glow on the surface' },
+      { de: 'Jederzeit zwischen Karte & Globus wechseln', en: 'Switch between map & globe anytime' },
     ],
     glow: 'rgba(70, 100, 220, 0.06)',
   },
   {
-    src: '/images/pinned/stats.jpg', alt: 'Statistics', title: 'Statistics',
-    de: 'Wie viel hast du schon von der Welt gesehen? Detaillierte Statistiken zu deinem Reisefortschritt.',
-    en: 'How much of the world have you seen? Detailed statistics about your travel progress.',
+    src: '/images/pinned/stats.jpg', alt: 'Statistics', title: 'Know Your Journey.',
+    de: 'Du wirst überrascht sein wie viel du schon gesehen hast. Dein persönliches Reise-Dashboard zeigt dir deinen Fortschritt — und motiviert dich, noch mehr zu entdecken.',
+    en: 'You\'ll be surprised how much you\'ve already seen. Your personal travel dashboard shows your progress — and motivates you to explore even more.',
     bullets: [
-      { de: 'Fortschritt in Prozent: Städte, Länder, Kontinente', en: 'Progress in percent: cities, countries, continents' },
-      { de: 'Reise-Statistiken: weiteste Reise, nördlichster Ort', en: 'Travel stats: furthest trip, northernmost place' },
-      { de: 'Erfolge & Meilensteine freischalten', en: 'Unlock achievements & milestones' },
-      { de: 'Gesamtstrecke & Zeitzonen', en: 'Total distance & time zones' },
+      { de: 'Fortschritt nach Städten, Ländern, Kontinenten', en: 'Progress by cities, countries, continents' },
+      { de: 'Rekorde: weiteste Reise, südlichster Ort, ...', en: 'Records: furthest trip, southernmost place, ...' },
+      { de: 'Erfolge freischalten', en: 'Unlock achievements' },
     ],
     glow: 'rgba(100, 140, 255, 0.06)',
   },
   {
-    src: '/images/pinned/places.jpg', alt: 'Places', title: 'Places',
-    de: 'Alle deine besuchten Orte in einer übersichtlichen Liste — filterbar, durchsuchbar, mit Flaggen.',
-    en: 'All your visited places in a clean list — filterable, searchable, with flags.',
+    src: '/images/pinned/places.jpg', alt: 'Places', title: 'Every Place Counts.',
+    de: 'Kein Scrollen durch alte Fotos um herauszufinden ob du schon mal in Belgien warst. Alles organisiert, alles durchsuchbar, alles an einem Ort.',
+    en: 'No scrolling through old photos to figure out if you\'ve been to Belgium. Everything organized, everything searchable, everything in one place.',
     bullets: [
-      { de: 'Länder & Städte getrennt durchsuchen', en: 'Browse countries & cities separately' },
-      { de: 'Filtern nach Status', en: 'Filter by status' },
-      { de: 'Sortiert nach Kontinent', en: 'Sorted by continent' },
+      { de: 'Flaggen, Kontinente, Status auf einen Blick', en: 'Flags, continents, status at a glance' },
+      { de: 'Filtern nach besucht, Wunsch, Zuhause', en: 'Filter by visited, wishlist, home' },
+      { de: 'Länder & Städte getrennt browsen', en: 'Browse countries & cities separately' },
     ],
     glow: 'rgba(60, 200, 120, 0.06)',
   },
@@ -63,7 +61,7 @@ const storeBadge = `<svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="curr
 const appleBadge = `<svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 21.99 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 21.99C7.79 22.03 6.8 20.68 5.96 19.47C4.25 16.97 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>`;
 ---
 
-<BaseLayout title="Pinned. Travel Tracker" description="Track visited countries & cities, keep a travel diary, plan trips. Free travel tracker app for Android & iOS.">
+<BaseLayout title="Pinned. Travel Tracker" description="Track visited countries & cities, keep a travel diary, plan trips. Free travel tracker app for Android & iOS." ogImage="/images/pinned/map.jpg">
 
   <!-- Hero -->
   <div class="relative overflow-hidden min-h-[85vh] flex items-end -mt-16">
@@ -92,7 +90,7 @@ const appleBadge = `<svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="curr
           </div>
         </div>
 
-        <!-- Phone trio -->
+        <!-- Phone trio — desktop -->
         <div class="relative h-[340px] w-[300px] shrink-0 hidden sm:block">
           <div class="absolute left-0 bottom-0 w-[140px] rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl shadow-black/50 rotate-[-6deg] z-10">
             <img src="/images/pinned/lists.jpg" alt="Bucket Lists" />
@@ -101,6 +99,12 @@ const appleBadge = `<svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="curr
             <img src="/images/pinned/passport.jpg" alt="Passport" />
           </div>
           <div class="absolute left-[70px] bottom-4 w-[160px] rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl shadow-black/50 z-20">
+            <img src="/images/pinned/countries.jpg" alt="Countries" />
+          </div>
+        </div>
+        <!-- Single phone — mobile -->
+        <div class="sm:hidden flex justify-center mt-4">
+          <div class="w-[180px] rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl shadow-black/50">
             <img src="/images/pinned/countries.jpg" alt="Countries" />
           </div>
         </div>
@@ -159,13 +163,16 @@ const appleBadge = `<svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="curr
   <!-- Highlights -->
   <section class="py-20 sm:py-28">
     <div class="mx-auto max-w-[900px] px-6">
-      <div class="rounded-xl bg-[#34a853]/5 border border-[#34a853]/15 p-8 sm:p-10">
-        <h3 class="text-lg font-bold text-center mb-6" data-de="Warum Pinned.?" data-en="Why Pinned.?"></h3>
-        <div class="grid gap-4 sm:grid-cols-2 max-w-lg mx-auto">
-          <div class="flex items-center gap-3"><span class="text-[#34a853]">✓</span><p class="text-sm text-text-2" data-de="100% lokal — keine Cloud, keine Accounts" data-en="100% local — no cloud, no accounts"></p></div>
-          <div class="flex items-center gap-3"><span class="text-[#34a853]">✓</span><p class="text-sm text-text-2" data-de="Kostenlos mit optionalem Premium" data-en="Free with optional Premium"></p></div>
-          <div class="flex items-center gap-3"><span class="text-[#34a853]">✓</span><p class="text-sm text-text-2" data-de="Offline nutzbar" data-en="Works offline"></p></div>
-          <div class="flex items-center gap-3"><span class="text-[#34a853]">✓</span><p class="text-sm text-text-2" data-de="Deine Daten bleiben auf deinem Gerät" data-en="Your data stays on your device"></p></div>
+      <div class="rounded-2xl bg-[#34a853]/[0.07] border border-[#34a853]/20 p-8 sm:p-10">
+        <p class="text-center text-[#4ade80] font-medium text-sm tracking-wide mb-1" data-de="Kein Abo. Keine Paywalls." data-en="No subscription. No paywalls."></p>
+        <h3 class="text-xl font-bold text-center sm:text-2xl" data-de="Alle Features. Kostenlos." data-en="All features. Free."></h3>
+        <div class="mt-8 grid gap-y-4 gap-x-8 sm:grid-cols-2 max-w-xl mx-auto">
+          <div class="flex items-center gap-3"><span class="text-[#4ade80] text-lg">✓</span><p class="text-[15px] text-text" data-de="100% lokal — keine Cloud, keine Accounts" data-en="100% local — no cloud, no accounts"></p></div>
+          <div class="flex items-center gap-3"><span class="text-[#4ade80] text-lg">✓</span><p class="text-[15px] text-text" data-de="Kein Abo, kein Freemium-Trick" data-en="No subscription, no freemium tricks"></p></div>
+          <div class="flex items-center gap-3"><span class="text-[#4ade80] text-lg">✓</span><p class="text-[15px] text-text" data-de="Offline nutzbar — überall" data-en="Works offline — anywhere"></p></div>
+          <div class="flex items-center gap-3"><span class="text-[#4ade80] text-lg">✓</span><p class="text-[15px] text-text" data-de="Deine Daten bleiben auf deinem Gerät" data-en="Your data stays on your device"></p></div>
+          <div class="flex items-center gap-3"><span class="text-[#4ade80] text-lg">✓</span><p class="text-[15px] text-text" data-de="Backup & Export als JSON oder PDF" data-en="Backup & export as JSON or PDF"></p></div>
+          <div class="flex items-center gap-3"><span class="text-[#4ade80] text-lg">✓</span><p class="text-[15px] text-text" data-de="Premium entfernt nur Werbung — das war's" data-en="Premium only removes ads — that's it"></p></div>
         </div>
       </div>
     </div>
