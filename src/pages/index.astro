@@ -9,12 +9,10 @@ const projects = [
   { name: 'FLACON', de: 'Parfum-Sammlungs-App', en: 'Perfume collection app', url: null },
 ];
 
-const pinnedFeatures = [
-  '🗺️ Map', '📊 Stats', '📸 Photos', '✈️ Trips', '🛂 Passport',
-];
+
 ---
 
-<BaseLayout title="Home">
+<BaseLayout title="Home" description="Nico Grim — Apps, Tools & digitale Produkte aus Wien. Pinned. Travel Tracker, BRP Lern-Apps, Daily Tools und mehr.">
   <div class="mx-auto max-w-[620px] px-6">
 
     <!-- Language toggle -->
@@ -31,24 +29,6 @@ const pinnedFeatures = [
       </h1>
       <p class="mt-5 text-lg text-text-2 leading-relaxed max-w-[400px]" data-de="Ich baue Apps, Tools &amp; digitale Produkte in Wien." data-en="Building apps, tools &amp; digital products in Vienna."></p>
     </header>
-
-    <!-- Pinned. Feature Section -->
-    <section class="pb-16 sm:pb-20">
-      <a href="/pinned" class="block rounded-2xl border border-border bg-surface p-6 sm:p-8 transition-colors hover:border-text-3 group">
-        <div class="flex items-center gap-3 mb-1">
-          <h2 class="font-display text-3xl sm:text-4xl group-hover:text-link-hover transition-colors">Pinned.</h2>
-          <span class="rounded-full bg-link/10 text-link text-xs px-3 py-1" data-de="Bald im Play Store" data-en="Coming soon to Play Store"></span>
-        </div>
-        <p class="text-text-2 text-sm">Travel Tracker</p>
-        <p class="mt-4 text-text-2 text-[15px] leading-relaxed" data-de="Tracke besuchte Länder &amp; Städte, führe ein Reisetagebuch mit Fotos, plane Reisen und entdecke Bucket Lists." data-en="Track visited countries &amp; cities, keep a travel diary with photos, plan trips and discover bucket lists."></p>
-        <div class="mt-5 flex flex-wrap gap-2">
-          {pinnedFeatures.map((f) => (
-            <span class="rounded-full border border-border bg-bg px-3 py-1 text-xs text-text-2">{f}</span>
-          ))}
-        </div>
-        <p class="mt-5 text-sm text-text-3 group-hover:text-text-2 transition-colors" data-de="Mehr erfahren →" data-en="Learn more →"></p>
-      </a>
-    </section>
 
     <!-- Projects -->
     <section class="pb-20 sm:pb-28">
