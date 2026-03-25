@@ -2,10 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const projects = [
+  { name: 'Pinned.', de: 'Travel Tracker — Länder, Städte & Reisen tracken', en: 'Travel Tracker — track countries, cities & trips', url: '/pinned' },
   { name: 'BRP Deutsch', de: 'Lern-App für die Deutsch-Matura', en: 'Study app for the German Matura exam', url: 'https://deutsch-matura.nico-grim.me' },
   { name: 'BRP Mathe', de: 'Lern-App für die Mathe-Matura', en: 'Study app for the Math Matura exam', url: null },
   { name: 'Daily Tools', de: '20+ Browser-Tools, kostenlos, ohne Anmeldung', en: '20+ browser tools, free, no signup', url: null },
   { name: 'FLACON', de: 'Parfum-Sammlungs-App', en: 'Perfume collection app', url: null },
+];
+
+const pinnedFeatures = [
+  '🗺️ Map', '📊 Stats', '📸 Photos', '✈️ Trips', '🛂 Passport',
 ];
 ---
 
@@ -27,6 +32,24 @@ const projects = [
       <p class="mt-5 text-lg text-text-2 leading-relaxed max-w-[400px]" data-de="Ich baue Apps, Tools &amp; digitale Produkte in Wien." data-en="Building apps, tools &amp; digital products in Vienna."></p>
     </header>
 
+    <!-- Pinned. Feature Section -->
+    <section class="pb-16 sm:pb-20">
+      <a href="/pinned" class="block rounded-2xl border border-border bg-surface p-6 sm:p-8 transition-colors hover:border-text-3 group">
+        <div class="flex items-center gap-3 mb-1">
+          <h2 class="font-display text-3xl sm:text-4xl group-hover:text-link-hover transition-colors">Pinned.</h2>
+          <span class="rounded-full bg-link/10 text-link text-xs px-3 py-1" data-de="Bald im Play Store" data-en="Coming soon to Play Store"></span>
+        </div>
+        <p class="text-text-2 text-sm">Travel Tracker</p>
+        <p class="mt-4 text-text-2 text-[15px] leading-relaxed" data-de="Tracke besuchte Länder &amp; Städte, führe ein Reisetagebuch mit Fotos, plane Reisen und entdecke Bucket Lists." data-en="Track visited countries &amp; cities, keep a travel diary with photos, plan trips and discover bucket lists."></p>
+        <div class="mt-5 flex flex-wrap gap-2">
+          {pinnedFeatures.map((f) => (
+            <span class="rounded-full border border-border bg-bg px-3 py-1 text-xs text-text-2">{f}</span>
+          ))}
+        </div>
+        <p class="mt-5 text-sm text-text-3 group-hover:text-text-2 transition-colors" data-de="Mehr erfahren →" data-en="Learn more →"></p>
+      </a>
+    </section>
+
     <!-- Projects -->
     <section class="pb-20 sm:pb-28">
       <h2 class="text-xs text-text-3 tracking-widest uppercase mb-6" data-de="Projekte" data-en="Projects"></h2>
@@ -34,9 +57,9 @@ const projects = [
         {projects.map((p) => (
           <li class="group">
             {p.url ? (
-              <a href={p.url} target="_blank" rel="noopener noreferrer" class="block">
+              <a href={p.url} {...(p.url.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})} class="block">
                 <span class="text-text group-hover:text-link-hover transition-colors">{p.name}</span>
-                <span class="ml-1.5 text-text-3 text-sm group-hover:text-text-2 transition-colors">↗</span>
+                <span class="ml-1.5 text-text-3 text-sm group-hover:text-text-2 transition-colors">{p.url.startsWith('http') ? '↗' : '→'}</span>
                 <p class="text-text-2 text-[15px] mt-0.5" data-de={p.de} data-en={p.en}></p>
               </a>
             ) : (

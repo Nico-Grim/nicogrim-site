@@ -1,0 +1,235 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const features = [
+  { emoji: '🗺️', title: 'Interactive Map', de: 'Markiere besuchte Länder & Städte auf einer interaktiven Weltkarte.', en: 'Mark visited countries & cities on an interactive world map.' },
+  { emoji: '📸', title: 'Travel Diary', de: 'Halte Erinnerungen mit Fotos, Notizen und Bewertungen fest.', en: 'Capture memories with photos, notes, and ratings.' },
+  { emoji: '✈️', title: 'Trip Planner', de: 'Plane zukünftige Reisen mit Packlisten, Flügen und Ausgaben.', en: 'Plan future trips with packing lists, flights, and expenses.' },
+  { emoji: '📊', title: 'Statistics', de: 'Sieh wie viel du von der Welt schon entdeckt hast.', en: 'See how much of the world you\'ve already explored.' },
+  { emoji: '🛂', title: 'Passport', de: 'Dein digitaler Reisepass — alle Länder auf einen Blick.', en: 'Your digital passport — all countries at a glance.' },
+  { emoji: '🌍', title: '3D Globe', de: 'Betrachte deine Reisen auf einem interaktiven 3D-Globus.', en: 'View your travels on an interactive 3D globe.' },
+];
+
+const screens = [
+  {
+    src: '/images/pinned/map.jpg', alt: 'World Map', title: 'World Map',
+    de: 'Deine persönliche Weltkarte. Markiere jedes Land und jede Stadt die du besucht hast — farbkodiert nach Status.',
+    en: 'Your personal world map. Mark every country and city you\'ve visited — color-coded by status.',
+    bullets: [
+      { de: 'Länder & Städte markieren', en: 'Mark countries & cities' },
+      { de: '4 Status-Typen: Besucht, Wunsch, Leben, Lebte', en: '4 status types: Visited, Wishlist, Living, Lived' },
+      { de: 'Suche nach Ländern & Städten', en: 'Search for countries & cities' },
+      { de: 'Routen zwischen Orten anzeigen', en: 'Show routes between places' },
+    ],
+    glow: 'rgba(60, 180, 90, 0.06)',
+  },
+  {
+    src: '/images/pinned/globe.jpg', alt: '3D Globe', title: '3D Globe',
+    de: 'Sieh deine Reisen aus einer ganz neuen Perspektive — auf einem interaktiven 3D-Globus.',
+    en: 'See your travels from a whole new perspective — on an interactive 3D globe.',
+    bullets: [
+      { de: 'Drehen, zoomen, entdecken', en: 'Rotate, zoom, explore' },
+      { de: 'Alle markierten Länder farbig hervorgehoben', en: 'All marked countries highlighted in color' },
+      { de: 'Zwischen Karte und Globus wechseln', en: 'Switch between map and globe' },
+    ],
+    glow: 'rgba(70, 100, 220, 0.06)',
+  },
+  {
+    src: '/images/pinned/stats.jpg', alt: 'Statistics', title: 'Statistics',
+    de: 'Wie viel hast du schon von der Welt gesehen? Detaillierte Statistiken zu deinem Reisefortschritt.',
+    en: 'How much of the world have you seen? Detailed statistics about your travel progress.',
+    bullets: [
+      { de: 'Fortschritt in Prozent: Städte, Länder, Kontinente', en: 'Progress in percent: cities, countries, continents' },
+      { de: 'Reise-Statistiken: weiteste Reise, nördlichster Ort', en: 'Travel stats: furthest trip, northernmost place' },
+      { de: 'Erfolge & Meilensteine freischalten', en: 'Unlock achievements & milestones' },
+      { de: 'Gesamtstrecke & Zeitzonen', en: 'Total distance & time zones' },
+    ],
+    glow: 'rgba(100, 140, 255, 0.06)',
+  },
+  {
+    src: '/images/pinned/places.jpg', alt: 'Places', title: 'Places',
+    de: 'Alle deine besuchten Orte in einer übersichtlichen Liste — filterbar, durchsuchbar, mit Flaggen.',
+    en: 'All your visited places in a clean list — filterable, searchable, with flags.',
+    bullets: [
+      { de: 'Länder & Städte getrennt durchsuchen', en: 'Browse countries & cities separately' },
+      { de: 'Filtern nach Status', en: 'Filter by status' },
+      { de: 'Sortiert nach Kontinent', en: 'Sorted by continent' },
+    ],
+    glow: 'rgba(60, 200, 120, 0.06)',
+  },
+];
+
+const storeBadge = `<svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>`;
+const appleBadge = `<svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 21.99 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 21.99C7.79 22.03 6.8 20.68 5.96 19.47C4.25 16.97 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>`;
+---
+
+<BaseLayout title="Pinned. Travel Tracker" description="Track visited countries & cities, keep a travel diary, plan trips. Free travel tracker app for Android & iOS.">
+
+  <!-- Hero -->
+  <div class="relative overflow-hidden min-h-[85vh] flex items-end -mt-16">
+    <div class="absolute inset-0">
+      <img src="/images/pinned/map.jpg" alt="" class="h-full w-full object-cover opacity-25" />
+      <div class="absolute inset-0 bg-gradient-to-t from-bg via-bg/70 to-bg/30"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-[900px] px-6 pb-16 pt-40 w-full">
+      <a href="/" class="text-sm text-text-3 hover:text-text-2 transition-colors">&larr; nicogrim.com</a>
+
+      <div class="mt-8 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
+        <div class="max-w-[480px]">
+          <h1 class="font-display text-[clamp(3.5rem,10vw,6rem)] leading-[0.9] tracking-tight">Pinned.</h1>
+          <p class="mt-2 text-xl text-text-2">Travel Tracker</p>
+          <p class="mt-5 text-text-2 leading-relaxed" data-de="Tracke besuchte Länder &amp; Städte, führe ein Reisetagebuch mit Fotos, plane zukünftige Reisen und entdecke deine persönliche Reisestatistik." data-en="Track visited countries &amp; cities, keep a travel diary with photos, plan future trips and discover your personal travel stats."></p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="store-badge inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-text-2">
+              <Fragment set:html={storeBadge} />
+              <span data-de="Play Store — bald" data-en="Play Store — soon"></span>
+            </span>
+            <span class="store-badge inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-text-2">
+              <Fragment set:html={appleBadge} />
+              <span data-de="App Store — bald" data-en="App Store — soon"></span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Phone trio -->
+        <div class="relative h-[340px] w-[300px] shrink-0 hidden sm:block">
+          <button class="screenshot-btn absolute left-0 bottom-0 w-[140px] rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl shadow-black/50 rotate-[-6deg] hover:rotate-[-3deg] transition-transform cursor-zoom-in z-10" data-index="2">
+            <img src="/images/pinned/stats.jpg" alt="Statistics" />
+          </button>
+          <button class="screenshot-btn absolute left-[70px] bottom-4 w-[160px] rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl shadow-black/50 hover:scale-105 transition-transform cursor-zoom-in z-20" data-index="0">
+            <img src="/images/pinned/map.jpg" alt="Map" />
+          </button>
+          <button class="screenshot-btn absolute right-0 bottom-0 w-[140px] rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl shadow-black/50 rotate-[6deg] hover:rotate-[3deg] transition-transform cursor-zoom-in z-10" data-index="1">
+            <img src="/images/pinned/globe.jpg" alt="Globe" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen sections — phone + text + bullet points, alternating with glow -->
+  {screens.map((s, i) => (
+    <section class:list={['relative py-16 sm:py-24 overflow-hidden', i % 2 === 0 ? 'bg-surface' : '']}>
+      <!-- Subtle glow from screenshot color -->
+      <div class="absolute inset-0 -z-10 opacity-60" style={`background: radial-gradient(ellipse 50% 70% at ${i % 2 === 0 ? '30%' : '70%'} 50%, ${s.glow}, transparent);`}></div>
+
+      <div class="mx-auto max-w-[900px] px-6">
+        <div class:list={['flex flex-col items-center gap-10 sm:flex-row sm:items-center sm:gap-14', i % 2 === 1 ? 'sm:flex-row-reverse' : '']}>
+          <!-- Phone -->
+          <button class="screenshot-btn shrink-0 w-[220px] sm:w-[260px] rounded-[24px] overflow-hidden border-2 border-white/10 shadow-2xl shadow-black/40 hover:scale-[1.02] transition-transform cursor-zoom-in" data-index={i}>
+            <img src={s.src} alt={`Pinned. ${s.alt}`} class="w-full" loading={i < 2 ? 'eager' : 'lazy'} />
+          </button>
+          <!-- Text + bullets -->
+          <div class="flex-1 min-w-0">
+            <h2 class="text-2xl font-bold sm:text-3xl">{s.title}</h2>
+            <p class="mt-3 text-text-2 leading-relaxed" data-de={s.de} data-en={s.en}></p>
+            <ul class="mt-5 space-y-2.5">
+              {s.bullets.map((b) => (
+                <li class="flex items-start gap-2.5 text-sm text-text-2">
+                  <span class="text-text-3 mt-0.5 shrink-0">—</span>
+                  <span data-de={b.de} data-en={b.en}></span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- Features grid -->
+  <section class="py-20 sm:py-28 bg-surface">
+    <div class="mx-auto max-w-[900px] px-6">
+      <h2 class="text-center text-2xl font-bold mb-10" data-de="Alle Features" data-en="All Features"></h2>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {features.map((f) => (
+          <div class="rounded-xl border border-border bg-bg p-5 flex gap-4">
+            <span class="text-2xl shrink-0">{f.emoji}</span>
+            <div>
+              <h3 class="font-medium text-text">{f.title}</h3>
+              <p class="mt-1 text-sm text-text-2 leading-relaxed" data-de={f.de} data-en={f.en}></p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights -->
+  <section class="py-20 sm:py-28">
+    <div class="mx-auto max-w-[900px] px-6">
+      <div class="rounded-xl bg-[#34a853]/5 border border-[#34a853]/15 p-8 sm:p-10">
+        <h3 class="text-lg font-bold text-center mb-6" data-de="Warum Pinned.?" data-en="Why Pinned.?"></h3>
+        <div class="grid gap-4 sm:grid-cols-2 max-w-lg mx-auto">
+          <div class="flex items-center gap-3"><span class="text-[#34a853]">✓</span><p class="text-sm text-text-2" data-de="100% lokal — keine Cloud, keine Accounts" data-en="100% local — no cloud, no accounts"></p></div>
+          <div class="flex items-center gap-3"><span class="text-[#34a853]">✓</span><p class="text-sm text-text-2" data-de="Kostenlos mit optionalem Premium" data-en="Free with optional Premium"></p></div>
+          <div class="flex items-center gap-3"><span class="text-[#34a853]">✓</span><p class="text-sm text-text-2" data-de="Offline nutzbar" data-en="Works offline"></p></div>
+          <div class="flex items-center gap-3"><span class="text-[#34a853]">✓</span><p class="text-sm text-text-2" data-de="Deine Daten bleiben auf deinem Gerät" data-en="Your data stays on your device"></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download CTA -->
+  <section class="py-20 sm:py-28 bg-surface">
+    <div class="mx-auto max-w-[900px] px-6 text-center">
+      <h2 class="font-display text-5xl sm:text-6xl">Pinned.</h2>
+      <p class="mt-3 text-lg text-text-2" data-de="Dein Travel Tracker. Bald verfügbar." data-en="Your Travel Tracker. Coming soon."></p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <span class="store-badge inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm text-text-2">
+          <Fragment set:html={storeBadge} />
+          <span data-de="Play Store — bald" data-en="Play Store — soon"></span>
+        </span>
+        <span class="store-badge inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm text-text-2">
+          <Fragment set:html={appleBadge} />
+          <span data-de="App Store — bald" data-en="App Store — soon"></span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="mx-auto max-w-[900px] px-6">
+    <div class="py-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-text-3">
+      <a href="/pinned-privacy" class="hover:text-text-2 transition-colors" data-de="Datenschutzerklärung" data-en="Privacy Policy"></a>
+      <a href="mailto:support@nicogrim.com" class="hover:text-text-2 transition-colors">support@nicogrim.com</a>
+    </div>
+    <footer class="border-t border-border py-8 flex flex-wrap items-center justify-between gap-4 text-sm text-text-3">
+      <a href="/" class="hover:text-text-2 transition-colors">&larr; nicogrim.com</a>
+      <span>&copy; 2026 Nico Grim</span>
+    </footer>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm cursor-zoom-out p-4">
+    <button id="lb-close" class="absolute top-5 right-5 text-white/60 hover:text-white text-3xl leading-none cursor-pointer z-10">&times;</button>
+    <button id="lb-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white/40 hover:text-white text-4xl leading-none cursor-pointer z-10">&lsaquo;</button>
+    <button id="lb-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 hover:text-white text-4xl leading-none cursor-pointer z-10">&rsaquo;</button>
+    <img id="lb-img" src="" alt="" class="max-h-[90vh] max-w-[90vw] rounded-2xl object-contain" />
+  </div>
+</BaseLayout>
+
+<script>
+  const els = document.querySelectorAll<HTMLElement>('[data-de]');
+  const saved = localStorage.getItem('lang') as 'de' | 'en' | null;
+  const browserDe = navigator.language.startsWith('de');
+  const lang = saved || (browserDe ? 'de' : 'en');
+  document.documentElement.lang = lang;
+  els.forEach((el) => { el.innerHTML = el.dataset[lang] || ''; });
+
+  const srcs = ['/images/pinned/map.jpg', '/images/pinned/globe.jpg', '/images/pinned/stats.jpg', '/images/pinned/places.jpg'];
+  const lb = document.getElementById('lightbox')!;
+  const img = document.getElementById('lb-img') as HTMLImageElement;
+  let current = 0;
+
+  function openLb(i: number) { current = i; img.src = srcs[current]; lb.classList.remove('hidden'); lb.classList.add('flex'); document.body.style.overflow = 'hidden'; }
+  function closeLb() { lb.classList.add('hidden'); lb.classList.remove('flex'); document.body.style.overflow = ''; }
+
+  document.querySelectorAll('.screenshot-btn').forEach((btn) => { btn.addEventListener('click', () => openLb(Number((btn as HTMLElement).dataset.index))); });
+  document.getElementById('lb-close')!.addEventListener('click', closeLb);
+  lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+  document.getElementById('lb-prev')!.addEventListener('click', (e) => { e.stopPropagation(); current = (current - 1 + srcs.length) % srcs.length; img.src = srcs[current]; });
+  document.getElementById('lb-next')!.addEventListener('click', (e) => { e.stopPropagation(); current = (current + 1) % srcs.length; img.src = srcs[current]; });
+  document.addEventListener('keydown', (e) => { if (lb.classList.contains('hidden')) return; if (e.key === 'Escape') closeLb(); if (e.key === 'ArrowLeft') { current = (current - 1 + srcs.length) % srcs.length; img.src = srcs[current]; } if (e.key === 'ArrowRight') { current = (current + 1) % srcs.length; img.src = srcs[current]; } });
+</script>
