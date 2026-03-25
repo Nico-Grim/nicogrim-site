@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #101012;
+  --color-bg-secondary: #151517;
+  --color-bg-tertiary: #1a1a1e;
+  --color-surface: #1e1e22;
+  --color-surface-hover: #26262c;
+  --color-border: #2a2a30;
+  --color-border-light: #3a3a44;
+  --color-text: #eaeaec;
+  --color-text-secondary: #8e8e9a;
+  --color-text-muted: #56565f;
+  --color-accent: #e8643a;
+  --color-accent-light: #f0825e;
+  --color-green: #4ade80;
+  --color-yellow: #facc15;
+  --color-red: #f87171;
+  --color-blue: #60a5fa;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: white;
+  }
+}
+
+@layer components {
+  .container-main {
+    @apply mx-auto w-full max-w-[1080px] px-6;
+  }
+
+  .badge-app,
+  .badge-game,
+  .badge-tool,
+  .badge-website,
+  .badge-status-live,
+  .badge-status-beta,
+  .badge-status-development,
+  .badge-status-discontinued {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .badge-app { @apply bg-blue/10 text-blue; }
+  .badge-game { @apply bg-red/10 text-red; }
+  .badge-tool { @apply bg-green/10 text-green; }
+  .badge-website { @apply bg-yellow/10 text-yellow; }
+  .badge-status-live { @apply bg-green/10 text-green; }
+  .badge-status-beta { @apply bg-yellow/10 text-yellow; }
+  .badge-status-development { @apply bg-blue/10 text-blue; }
+  .badge-status-discontinued { @apply bg-red/10 text-red; }
+
+  .prose-custom {
+    @apply text-text-secondary leading-[1.75];
+  }
+  .prose-custom h2 { @apply mt-12 mb-4 text-2xl font-bold text-text; }
+  .prose-custom h3 { @apply mt-8 mb-3 text-xl font-semibold text-text; }
+  .prose-custom p { @apply mb-5; }
+  .prose-custom a { @apply text-accent underline underline-offset-2 hover:text-accent-light; }
+  .prose-custom ul { @apply mb-5 list-disc pl-6; }
+  .prose-custom ol { @apply mb-5 list-decimal pl-6; }
+  .prose-custom li { @apply mb-1.5; }
+  .prose-custom code { @apply rounded bg-surface px-1.5 py-0.5 font-mono text-sm text-text; }
+  .prose-custom pre { @apply mb-5 overflow-x-auto rounded-lg bg-surface p-5; }
+  .prose-custom pre code { @apply bg-transparent p-0; }
+  .prose-custom blockquote { @apply mb-5 border-l-2 border-accent/40 pl-4 italic text-text-muted; }
+  .prose-custom img { @apply my-8 rounded-lg; }
+}
+
+@layer utilities {
+  .animate-in {
+    animation: animateIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) both;
+  }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+}
+
+@keyframes animateIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

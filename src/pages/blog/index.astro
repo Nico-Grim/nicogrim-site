@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+
+<BaseLayout title="Blog" description="Thoughts, updates, and lessons learned by Nico Grim.">
+  <section class="pt-12 sm:pt-20 pb-20">
+    <div class="container-main">
+      <h1 class="animate-in text-4xl font-bold tracking-tight sm:text-5xl">Blog</h1>
+      <p class="animate-in delay-1 mt-3 text-lg text-text-secondary">Occasionally writing about what I'm building and learning.</p>
+
+      <div class="mt-14 space-y-0">
+        {posts.map((post) => (
+          <a href={`/blog/${post.id}`} class="group flex flex-col gap-1 border-t border-border py-6 sm:flex-row sm:items-baseline sm:justify-between" data-animate>
+            <h2 class="text-lg font-medium group-hover:text-accent transition-colors">{post.data.title}</h2>
+            <time datetime={post.data.date} class="text-sm text-text-muted shrink-0">
+              {new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+            </time>
+          </a>
+        ))}
+      </div>
+
+      {posts.length === 0 && <p class="mt-12 text-text-muted">Nothing here yet.</p>}
+    </div>
+  </section>
+</BaseLayout>
