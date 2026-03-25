@@ -3,49 +3,52 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Datenschutzerklärung" description="Datenschutzerklärung gemäß DSGVO">
-  <section class="pt-12 sm:pt-20 pb-20">
-    <div class="container-main">
-      <div class="max-w-2xl">
-        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Datenschutzerklärung</h1>
-        <p class="mt-2 text-sm text-text-muted">Stand: März 2025</p>
+  <div class="mx-auto max-w-[620px] px-6">
+    <header class="pt-24 pb-12 sm:pt-36">
+      <a href="/" class="text-sm text-text-3 hover:text-text-2 transition-colors">&larr; Back</a>
+      <h1 class="mt-6 font-display text-4xl sm:text-5xl">Datenschutz</h1>
+      <p class="mt-2 text-sm text-text-3">Stand: März 2025</p>
+    </header>
 
-        <div class="mt-10 space-y-8 text-text-secondary leading-relaxed">
-          <div>
-            <h2 class="text-lg font-semibold text-text mb-2">1. Verantwortlicher</h2>
-            <p>Nico Grim<br/>Wien, Österreich<br/>E-Mail: <a href="mailto:hello@nicogrim.com" class="text-text hover:text-accent transition-colors underline underline-offset-2">hello@nicogrim.com</a></p>
-          </div>
+    <div class="space-y-8 text-text-2 leading-relaxed pb-20">
+      <div>
+        <h2 class="text-text font-medium mb-2">1. Verantwortlicher</h2>
+        <p>Nico Grim<br/>Wien, Österreich<br/>E-Mail: <a href="mailto:hello@nicogrim.com" class="underline underline-offset-2 hover:text-link-hover transition-colors">hello@nicogrim.com</a></p>
+      </div>
 
-          <div>
-            <h2 class="text-lg font-semibold text-text mb-2">2. Erhebung und Verarbeitung personenbezogener Daten</h2>
-            <p>Diese Website ist eine statische Website. Es werden grundsätzlich keine personenbezogenen Daten erhoben, gespeichert oder verarbeitet, es sei denn, Sie treten aktiv mit mir in Kontakt (z.B. per E-Mail).</p>
-          </div>
+      <div>
+        <h2 class="text-text font-medium mb-2">2. Erhebung personenbezogener Daten</h2>
+        <p>Diese Website ist eine statische Website. Es werden grundsätzlich keine personenbezogenen Daten erhoben, gespeichert oder verarbeitet, es sei denn, Sie treten aktiv mit mir in Kontakt.</p>
+      </div>
 
-          <div>
-            <h2 class="text-lg font-semibold text-text mb-2">3. Hosting</h2>
-            <p>Diese Website wird bei Vercel Inc. gehostet. Beim Besuch werden automatisch technische Daten (z.B. IP-Adresse, Browsertyp, Zeitpunkt des Zugriffs) in Server-Logfiles erfasst. Diese Daten sind für den technischen Betrieb erforderlich und werden nicht zur Identifizierung einzelner Nutzer verwendet.</p>
-          </div>
+      <div>
+        <h2 class="text-text font-medium mb-2">3. Hosting</h2>
+        <p>Diese Website wird bei Vercel Inc. gehostet. Beim Besuch werden automatisch technische Daten (z.B. IP-Adresse, Browsertyp, Zeitpunkt des Zugriffs) in Server-Logfiles erfasst. Diese Daten sind für den technischen Betrieb erforderlich und werden nicht zur Identifizierung einzelner Nutzer verwendet.</p>
+      </div>
 
-          <div>
-            <h2 class="text-lg font-semibold text-text mb-2">4. Cookies</h2>
-            <p>Diese Website verwendet keine Cookies zu Tracking- oder Analysezwecken.</p>
-          </div>
+      <div>
+        <h2 class="text-text font-medium mb-2">4. Cookies</h2>
+        <p>Diese Website verwendet keine Cookies zu Tracking- oder Analysezwecken.</p>
+      </div>
 
-          <div>
-            <h2 class="text-lg font-semibold text-text mb-2">5. Kontaktaufnahme per E-Mail</h2>
-            <p>Wenn Sie mich per E-Mail kontaktieren, werden die von Ihnen mitgeteilten Daten zum Zweck der Bearbeitung Ihrer Anfrage gespeichert. Diese Daten werden nicht ohne Ihre Einwilligung weitergegeben.</p>
-          </div>
+      <div>
+        <h2 class="text-text font-medium mb-2">5. Kontaktaufnahme per E-Mail</h2>
+        <p>Wenn Sie mich per E-Mail kontaktieren, werden die von Ihnen mitgeteilten Daten zum Zweck der Bearbeitung Ihrer Anfrage gespeichert. Diese Daten werden nicht ohne Ihre Einwilligung weitergegeben.</p>
+      </div>
 
-          <div>
-            <h2 class="text-lg font-semibold text-text mb-2">6. Ihre Rechte</h2>
-            <p>Gemäß DSGVO haben Sie das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Wenden Sie sich dazu an: <a href="mailto:hello@nicogrim.com" class="text-text hover:text-accent transition-colors underline underline-offset-2">hello@nicogrim.com</a></p>
-          </div>
+      <div>
+        <h2 class="text-text font-medium mb-2">6. Ihre Rechte</h2>
+        <p>Gemäß DSGVO haben Sie das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Wenden Sie sich dazu an: <a href="mailto:hello@nicogrim.com" class="underline underline-offset-2 hover:text-link-hover transition-colors">hello@nicogrim.com</a></p>
+      </div>
 
-          <div>
-            <h2 class="text-lg font-semibold text-text mb-2">7. Beschwerderecht</h2>
-            <p>Österreichische Datenschutzbehörde<br/>Barichgasse 40-42, 1030 Wien<br/><a href="https://www.dsb.gv.at" target="_blank" rel="noopener noreferrer" class="text-text hover:text-accent transition-colors underline underline-offset-2">www.dsb.gv.at</a></p>
-          </div>
-        </div>
+      <div>
+        <h2 class="text-text font-medium mb-2">7. Beschwerderecht</h2>
+        <p>Österreichische Datenschutzbehörde<br/>Barichgasse 40-42, 1030 Wien<br/><a href="https://www.dsb.gv.at" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-link-hover transition-colors">www.dsb.gv.at</a></p>
       </div>
     </div>
-  </section>
+
+    <footer class="border-t border-border py-8 text-sm text-text-3">
+      <a href="/" class="hover:text-text-2 transition-colors">&larr; nicogrim.com</a>
+    </footer>
+  </div>
 </BaseLayout>
