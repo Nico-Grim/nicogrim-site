@@ -12,7 +12,7 @@ const features = [
 
 const screens = [
   {
-    src: '/images/pinned/map.jpg', alt: 'World Map', title: 'Your World. Your Map.',
+    src: '/images/pinned/map.jpg', alt: 'World Map', titleDe: 'Deine Welt. Deine Karte.', titleEn: 'Your World. Your Map.',
     de: 'Jede Reise hinterlässt eine Spur. Sieh auf einen Blick, wo du schon warst — und wo du noch hin willst. Deine Weltkarte wächst mit jedem Abenteuer.',
     en: 'Every trip leaves a mark. See at a glance where you\'ve been — and where you want to go next. Your world map grows with every adventure.',
     bullets: [
@@ -23,7 +23,7 @@ const screens = [
     glow: 'rgba(60, 180, 90, 0.06)',
   },
   {
-    src: '/images/pinned/globe.jpg', alt: '3D Globe', title: 'The Big Picture.',
+    src: '/images/pinned/globe.jpg', alt: '3D Globe', titleDe: 'Das große Ganze.', titleEn: 'The Big Picture.',
     de: 'Dreh die Welt. Zoom rein. Sieh deine Reisen so, wie sie wirklich sind — auf einem Globus, nicht flachgedrückt auf einer Karte.',
     en: 'Spin the world. Zoom in. See your travels as they really are — on a globe, not flattened on a map.',
     bullets: [
@@ -34,7 +34,7 @@ const screens = [
     glow: 'rgba(70, 100, 220, 0.06)',
   },
   {
-    src: '/images/pinned/stats.jpg', alt: 'Statistics', title: 'Know Your Journey.',
+    src: '/images/pinned/stats.jpg', alt: 'Statistics', titleDe: 'Kenne deine Reise.', titleEn: 'Know Your Journey.',
     de: 'Du wirst überrascht sein wie viel du schon gesehen hast. Dein persönliches Reise-Dashboard zeigt dir deinen Fortschritt — und motiviert dich, noch mehr zu entdecken.',
     en: 'You\'ll be surprised how much you\'ve already seen. Your personal travel dashboard shows your progress — and motivates you to explore even more.',
     bullets: [
@@ -45,7 +45,7 @@ const screens = [
     glow: 'rgba(100, 140, 255, 0.06)',
   },
   {
-    src: '/images/pinned/places.jpg', alt: 'Places', title: 'Every Place Counts.',
+    src: '/images/pinned/places.jpg', alt: 'Places', titleDe: 'Jeder Ort zählt.', titleEn: 'Every Place Counts.',
     de: 'Kein Scrollen durch alte Fotos um herauszufinden ob du schon mal in Belgien warst. Alles organisiert, alles durchsuchbar, alles an einem Ort.',
     en: 'No scrolling through old photos to figure out if you\'ve been to Belgium. Everything organized, everything searchable, everything in one place.',
     bullets: [
@@ -71,7 +71,10 @@ const appleBadge = `<svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="curr
     </div>
 
     <div class="relative mx-auto max-w-[900px] px-6 pb-16 pt-40 w-full">
-      <a href="/" class="text-sm text-text-3 hover:text-text-2 transition-colors">&larr; nicogrim.com</a>
+      <div class="flex items-center justify-between">
+        <a href="/" class="text-sm text-text-3 hover:text-text-2 transition-colors">&larr; nicogrim.com</a>
+        <button id="lang-toggle" class="text-sm text-text-3 hover:text-text-2 transition-colors cursor-pointer">EN</button>
+      </div>
 
       <div class="mt-8 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
         <div class="max-w-[480px]">
@@ -126,7 +129,7 @@ const appleBadge = `<svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="curr
           </button>
           <!-- Text + bullets -->
           <div class="flex-1 min-w-0">
-            <h2 class="text-2xl font-bold sm:text-3xl">{s.title}</h2>
+            <h2 class="text-2xl font-bold sm:text-3xl" data-de={s.titleDe} data-en={s.titleEn}></h2>
             <p class="mt-3 text-text-2 leading-relaxed" data-de={s.de} data-en={s.en}></p>
             <ul class="mt-5 space-y-2.5">
               {s.bullets.map((b) => (
@@ -218,12 +221,23 @@ const appleBadge = `<svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="curr
 </BaseLayout>
 
 <script>
+  const toggle = document.getElementById('lang-toggle')!;
   const els = document.querySelectorAll<HTMLElement>('[data-de]');
+
+  function setLang(lang: 'de' | 'en') {
+    els.forEach((el) => { el.innerHTML = el.dataset[lang] || ''; });
+    toggle.textContent = lang === 'de' ? 'EN' : 'DE';
+    document.documentElement.lang = lang;
+    localStorage.setItem('lang', lang);
+  }
+
   const saved = localStorage.getItem('lang') as 'de' | 'en' | null;
   const browserDe = navigator.language.startsWith('de');
-  const lang = saved || (browserDe ? 'de' : 'en');
-  document.documentElement.lang = lang;
-  els.forEach((el) => { el.innerHTML = el.dataset[lang] || ''; });
+  setLang(saved || (browserDe ? 'de' : 'en'));
+
+  toggle.addEventListener('click', () => {
+    setLang(document.documentElement.lang === 'de' ? 'en' : 'de');
+  });
 
   const srcs = ['/images/pinned/map.jpg', '/images/pinned/globe.jpg', '/images/pinned/stats.jpg', '/images/pinned/places.jpg'];
   const lb = document.getElementById('lightbox')!;

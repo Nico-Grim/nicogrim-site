@@ -9,6 +9,52 @@ const features = [
   { emoji: '🔍', title: 'Search & Filter', de: 'Suche nach Titel, Notiz oder Tag. Filtere nach offen, erledigt oder alle.', en: 'Search by title, note, or tag. Filter by open, done, or all.' },
   { emoji: '📦', title: 'Backup & Export', de: 'Exportiere und importiere deine Daten als JSON. Deine Daten gehören dir.', en: 'Export and import your data as JSON. Your data belongs to you.' },
 ];
+
+const screens = [
+  {
+    src: '/images/taskly/lists.jpg', alt: 'Lists', titleDe: 'Deine Listen.', titleEn: 'Your Lists.',
+    de: 'Organisiere dich so, wie es für dich passt. Erstelle eigene Listen für Arbeit, Einkäufe, Projekte — oder was immer du willst.',
+    en: 'Organize the way that works for you. Create lists for work, groceries, projects — or whatever you need.',
+    bullets: [
+      { de: 'Eigene Farben & Icons pro Liste', en: 'Custom colors & icons per list' },
+      { de: '"Alle Todos" Ansicht über alle Listen', en: '"All Todos" view across all lists' },
+      { de: 'Drag & Drop zum Umsortieren', en: 'Drag & drop to reorder' },
+    ],
+    glow: 'rgba(130, 80, 220, 0.06)',
+  },
+  {
+    src: '/images/taskly/create-list.jpg', alt: 'Create List', titleDe: 'Ganz nach deinem Geschmack.', titleEn: 'Make It Yours.',
+    de: 'Jede Liste bekommt ihre eigene Farbe und ihr eigenes Icon. So findest du immer sofort was du suchst.',
+    en: 'Every list gets its own color and icon. So you always find what you\'re looking for instantly.',
+    bullets: [
+      { de: '8 Farben zur Auswahl', en: '8 colors to choose from' },
+      { de: '12 Icons für jeden Zweck', en: '12 icons for every purpose' },
+    ],
+    glow: 'rgba(220, 60, 100, 0.06)',
+  },
+  {
+    src: '/images/taskly/create-todo.jpg', alt: 'Create Todo', titleDe: 'Schnell erstellt.', titleEn: 'Quick to Create.',
+    de: 'Todo erstellen dauert Sekunden. Titel rein, Priorität wählen, Datum setzen — fertig. Alles was du brauchst, nichts was du nicht brauchst.',
+    en: 'Creating a todo takes seconds. Add a title, pick a priority, set a date — done. Everything you need, nothing you don\'t.',
+    bullets: [
+      { de: 'Subtasks, Notizen, Tags', en: 'Subtasks, notes, tags' },
+      { de: '3 Prioritätsstufen', en: '3 priority levels' },
+      { de: 'Einmalig oder wiederkehrend', en: 'One-time or recurring' },
+    ],
+    glow: 'rgba(60, 140, 220, 0.06)',
+  },
+  {
+    src: '/images/taskly/todos.jpg', alt: 'Todos', titleDe: 'Einfach erledigen.', titleEn: 'Get Things Done.',
+    de: 'Wische nach rechts zum Erledigen, nach links zum Löschen. Halte gedrückt zum Anheften. Alles geht schnell und fühlt sich gut an.',
+    en: 'Swipe right to complete, left to delete. Long press to pin. Everything is fast and feels right.',
+    bullets: [
+      { de: 'Gesten für alles', en: 'Gestures for everything' },
+      { de: 'Tags, Prioritäten, Fälligkeitsdaten', en: 'Tags, priorities, due dates' },
+      { de: 'Suche & Filter', en: 'Search & filter' },
+    ],
+    glow: 'rgba(220, 160, 60, 0.06)',
+  },
+];
 ---
 
 <BaseLayout title="Taskly — Todo App" description="Simple, beautiful todo app with lists, subtasks, reminders, and recurring tasks. Free for Android & iOS.">
@@ -16,7 +62,10 @@ const features = [
   <!-- Hero -->
   <div class="relative overflow-hidden" style="background: linear-gradient(180deg, #0d1a2e 0%, #0e0e0e 100%);">
     <div class="mx-auto max-w-[720px] px-6 pt-24 pb-14 sm:pt-32 sm:pb-20">
-      <a href="/" class="text-sm text-text-3 hover:text-text-2 transition-colors">&larr; nicogrim.com</a>
+      <div class="flex items-center justify-between">
+        <a href="/" class="text-sm text-text-3 hover:text-text-2 transition-colors">&larr; nicogrim.com</a>
+        <button id="lang-toggle" class="text-sm text-text-3 hover:text-text-2 transition-colors cursor-pointer">EN</button>
+      </div>
 
       <div class="mt-10 flex items-end gap-5">
         <img src="/images/taskly-icon.png" alt="Taskly" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl shrink-0" />
@@ -41,6 +90,32 @@ const features = [
     </div>
   </div>
 
+  <!-- Screen sections -->
+  {screens.map((s, i) => (
+    <section class:list={['relative py-16 sm:py-24 overflow-hidden', i % 2 === 0 ? 'bg-surface' : '']}>
+      <div class="absolute inset-0 -z-10 opacity-60" style={`background: radial-gradient(ellipse 50% 70% at ${i % 2 === 0 ? '30%' : '70%'} 50%, ${s.glow}, transparent);`}></div>
+      <div class="mx-auto max-w-[900px] px-6">
+        <div class:list={['flex flex-col items-center gap-10 sm:flex-row sm:items-center sm:gap-14', i % 2 === 1 ? 'sm:flex-row-reverse' : '']}>
+          <button class="screenshot-btn shrink-0 w-[220px] sm:w-[260px] rounded-[24px] overflow-hidden border-2 border-white/10 shadow-2xl shadow-black/40 hover:scale-[1.02] transition-transform cursor-zoom-in" data-index={i}>
+            <img src={s.src} alt={`Taskly ${s.alt}`} class="w-full" loading={i < 2 ? 'eager' : 'lazy'} />
+          </button>
+          <div class="flex-1 min-w-0">
+            <h2 class="text-2xl font-bold sm:text-3xl" data-de={s.titleDe} data-en={s.titleEn}></h2>
+            <p class="mt-3 text-text-2 leading-relaxed" data-de={s.de} data-en={s.en}></p>
+            <ul class="mt-5 space-y-2.5">
+              {s.bullets.map((b) => (
+                <li class="flex items-start gap-2.5 text-sm text-text-2">
+                  <span class="text-text-3 mt-0.5 shrink-0">—</span>
+                  <span data-de={b.de} data-en={b.en}></span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
   <div class="mx-auto max-w-[720px] px-6">
 
     <!-- Features -->
@@ -51,7 +126,7 @@ const features = [
           <div class="rounded-xl border border-border bg-surface p-5 flex gap-4">
             <span class="text-2xl shrink-0">{f.emoji}</span>
             <div>
-              <h3 class="font-medium text-text">{f.title}</h3>
+              <h3 class="font-medium text-text" data-de={f.title} data-en={f.title}></h3>
               <p class="mt-1 text-sm text-text-2 leading-relaxed" data-de={f.de} data-en={f.en}></p>
             </div>
           </div>
@@ -110,13 +185,47 @@ const features = [
       <span>&copy; 2026 Nico Grim</span>
     </footer>
   </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm cursor-zoom-out p-4">
+    <button id="lb-close" class="absolute top-5 right-5 text-white/60 hover:text-white text-3xl leading-none cursor-pointer z-10">&times;</button>
+    <button id="lb-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white/40 hover:text-white text-4xl leading-none cursor-pointer z-10">&lsaquo;</button>
+    <button id="lb-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 hover:text-white text-4xl leading-none cursor-pointer z-10">&rsaquo;</button>
+    <img id="lb-img" src="" alt="" class="max-h-[90vh] max-w-[90vw] rounded-2xl object-contain" />
+  </div>
 </BaseLayout>
 
 <script>
+  const toggle = document.getElementById('lang-toggle')!;
   const els = document.querySelectorAll<HTMLElement>('[data-de]');
+
+  function setLang(lang: 'de' | 'en') {
+    els.forEach((el) => { el.innerHTML = el.dataset[lang] || ''; });
+    toggle.textContent = lang === 'de' ? 'EN' : 'DE';
+    document.documentElement.lang = lang;
+    localStorage.setItem('lang', lang);
+  }
+
   const saved = localStorage.getItem('lang') as 'de' | 'en' | null;
   const browserDe = navigator.language.startsWith('de');
-  const lang = saved || (browserDe ? 'de' : 'en');
-  document.documentElement.lang = lang;
-  els.forEach((el) => { el.innerHTML = el.dataset[lang] || ''; });
+  setLang(saved || (browserDe ? 'de' : 'en'));
+
+  toggle.addEventListener('click', () => {
+    setLang(document.documentElement.lang === 'de' ? 'en' : 'de');
+  });
+
+  const srcs = ['/images/taskly/lists.jpg', '/images/taskly/create-list.jpg', '/images/taskly/create-todo.jpg', '/images/taskly/todos.jpg'];
+  const lb = document.getElementById('lightbox')!;
+  const img = document.getElementById('lb-img') as HTMLImageElement;
+  let current = 0;
+
+  function openLb(i: number) { current = i; img.src = srcs[current]; lb.classList.remove('hidden'); lb.classList.add('flex'); document.body.style.overflow = 'hidden'; }
+  function closeLb() { lb.classList.add('hidden'); lb.classList.remove('flex'); document.body.style.overflow = ''; }
+
+  document.querySelectorAll('.screenshot-btn').forEach((btn) => { btn.addEventListener('click', () => openLb(Number((btn as HTMLElement).dataset.index))); });
+  document.getElementById('lb-close')!.addEventListener('click', closeLb);
+  lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+  document.getElementById('lb-prev')!.addEventListener('click', (e) => { e.stopPropagation(); current = (current - 1 + srcs.length) % srcs.length; img.src = srcs[current]; });
+  document.getElementById('lb-next')!.addEventListener('click', (e) => { e.stopPropagation(); current = (current + 1) % srcs.length; img.src = srcs[current]; });
+  document.addEventListener('keydown', (e) => { if (lb.classList.contains('hidden')) return; if (e.key === 'Escape') closeLb(); if (e.key === 'ArrowLeft') { current = (current - 1 + srcs.length) % srcs.length; img.src = srcs[current]; } if (e.key === 'ArrowRight') { current = (current + 1) % srcs.length; img.src = srcs[current]; } });
 </script>
