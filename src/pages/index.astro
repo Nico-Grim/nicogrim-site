@@ -6,6 +6,7 @@ const projects = [
   { name: 'BRP Deutsch', de: 'Lern-App für die Deutsch-Matura', en: 'Study app for the German Matura exam', url: 'https://deutsch-matura.nico-grim.me' },
   { name: 'BRP Mathe', de: 'Lern-App für die Mathe-Matura', en: 'Study app for the Math Matura exam', url: null },
   { name: 'Daily Tools', de: '20+ Browser-Tools, kostenlos, ohne Anmeldung', en: '20+ browser tools, free, no signup', url: null },
+  { name: 'Taskly', de: 'Einfache Todo-App mit Listen, Subtasks & Erinnerungen', en: 'Simple todo app with lists, subtasks & reminders', url: '/taskly' },
   { name: 'FLACON', de: 'Parfum-Sammlungs-App', en: 'Perfume collection app', url: null },
 ];
 
@@ -30,11 +31,11 @@ const projects = [
       <p class="mt-5 text-lg text-text-2 leading-relaxed max-w-[400px]" data-de="Ich baue Apps, Tools &amp; digitale Produkte in Wien." data-en="Building apps, tools &amp; digital products in Vienna."></p>
     </header>
 
-    <!-- Featured: Pinned. -->
+    <!-- Featured Apps -->
     <section class="pb-10 sm:pb-12">
       <h2 class="text-xs text-text-3 tracking-widest uppercase mb-6" data-de="Projekte" data-en="Projects"></h2>
-      <a href="/pinned" class="group block rounded-xl border border-border bg-surface overflow-hidden transition-all hover:border-text-3 hover:bg-surface-hover">
-        <div class="flex items-center gap-5 p-4 sm:p-5">
+      <div class="space-y-3">
+        <a href="/pinned" class="group flex items-center gap-5 rounded-xl border border-border bg-surface p-4 sm:p-5 transition-all hover:border-text-3 hover:bg-surface-hover">
           <img src="/images/pinned/icon.png" alt="Pinned." class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl shrink-0" />
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-2.5">
@@ -44,14 +45,25 @@ const projects = [
             <p class="text-text-2 text-sm mt-0.5" data-de="Travel Tracker — Länder, Städte &amp; Reisen tracken" data-en="Travel Tracker — track countries, cities &amp; trips"></p>
           </div>
           <span class="text-text-3 group-hover:text-text-2 group-hover:translate-x-0.5 transition-all shrink-0 text-lg">→</span>
-        </div>
-      </a>
+        </a>
+        <a href="/taskly" class="group flex items-center gap-5 rounded-xl border border-border bg-surface p-4 sm:p-5 transition-all hover:border-text-3 hover:bg-surface-hover">
+          <img src="/images/taskly-icon.png" alt="Taskly" class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2.5">
+              <span class="font-display text-xl sm:text-2xl text-text group-hover:text-link-hover transition-colors">Taskly</span>
+              <span class="rounded-full bg-[#2196F3]/15 text-[#60a5fa] text-[11px] px-2 py-0.5" data-de="Bald verfügbar" data-en="Coming soon"></span>
+            </div>
+            <p class="text-text-2 text-sm mt-0.5" data-de="Einfache Todo-App mit Listen, Subtasks &amp; Erinnerungen" data-en="Simple todo app with lists, subtasks &amp; reminders"></p>
+          </div>
+          <span class="text-text-3 group-hover:text-text-2 group-hover:translate-x-0.5 transition-all shrink-0 text-lg">→</span>
+        </a>
+      </div>
     </section>
 
     <!-- Other Projects -->
     <section class="pb-20 sm:pb-28">
       <div class="space-y-3">
-        {projects.filter(p => p.name !== 'Pinned.').map((p) => {
+        {projects.filter(p => p.name !== 'Pinned.' && p.name !== 'Taskly').map((p) => {
           const isExternal = p.url?.startsWith('http');
           return (
             <a

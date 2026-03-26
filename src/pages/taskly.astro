@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const features = [
+  { emoji: '✅', title: 'Todos & Subtasks', de: 'Erstelle Todos mit Subtasks, Notizen, Tags und Fälligkeitsdaten.', en: 'Create todos with subtasks, notes, tags, and due dates.' },
+  { emoji: '📋', title: 'Lists', de: 'Organisiere deine Todos in farbigen Listen mit eigenen Icons.', en: 'Organize your todos in colored lists with custom icons.' },
+  { emoji: '🔁', title: 'Recurring Tasks', de: 'Täglich, wöchentlich oder monatlich — wiederkehrende Aufgaben automatisch.', en: 'Daily, weekly, or monthly — recurring tasks automatically.' },
+  { emoji: '🔔', title: 'Reminders', de: 'Lokale Push-Benachrichtigungen für fällige Todos.', en: 'Local push notifications for due todos.' },
+  { emoji: '🔍', title: 'Search & Filter', de: 'Suche nach Titel, Notiz oder Tag. Filtere nach offen, erledigt oder alle.', en: 'Search by title, note, or tag. Filter by open, done, or all.' },
+  { emoji: '📦', title: 'Backup & Export', de: 'Exportiere und importiere deine Daten als JSON. Deine Daten gehören dir.', en: 'Export and import your data as JSON. Your data belongs to you.' },
+];
+---
+
+<BaseLayout title="Taskly — Todo App" description="Simple, beautiful todo app with lists, subtasks, reminders, and recurring tasks. Free for Android & iOS.">
+
+  <!-- Hero -->
+  <div class="relative overflow-hidden" style="background: linear-gradient(180deg, #0d1a2e 0%, #0e0e0e 100%);">
+    <div class="mx-auto max-w-[720px] px-6 pt-24 pb-14 sm:pt-32 sm:pb-20">
+      <a href="/" class="text-sm text-text-3 hover:text-text-2 transition-colors">&larr; nicogrim.com</a>
+
+      <div class="mt-10 flex items-end gap-5">
+        <img src="/images/taskly-icon.png" alt="Taskly" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl shrink-0" />
+        <div>
+          <h1 class="font-display text-[clamp(3rem,10vw,5rem)] leading-[0.9] tracking-tight">Taskly</h1>
+          <p class="mt-1 text-xl text-text-2">Todo App</p>
+        </div>
+      </div>
+
+      <p class="mt-6 text-lg text-text-2 leading-relaxed max-w-[500px]" data-de="Einfache, schöne Todo-App mit Listen, Subtasks, Erinnerungen und wiederkehrenden Aufgaben. Alles lokal, alles kostenlos." data-en="Simple, beautiful todo app with lists, subtasks, reminders, and recurring tasks. All local, all free."></p>
+
+      <div class="mt-8 flex flex-wrap gap-2">
+        <span class="store-badge inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-text-2">
+          <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+          <span data-de="Play Store — bald" data-en="Play Store — soon"></span>
+        </span>
+        <span class="store-badge inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-text-2">
+          <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 21.99 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 21.99C7.79 22.03 6.8 20.68 5.96 19.47C4.25 16.97 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
+          <span data-de="App Store — bald" data-en="App Store — soon"></span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-[720px] px-6">
+
+    <!-- Features -->
+    <section class="py-16 sm:py-20">
+      <h2 class="text-xs text-text-3 tracking-widest uppercase mb-8" data-de="Features" data-en="Features"></h2>
+      <div class="grid gap-4 sm:grid-cols-2">
+        {features.map((f) => (
+          <div class="rounded-xl border border-border bg-surface p-5 flex gap-4">
+            <span class="text-2xl shrink-0">{f.emoji}</span>
+            <div>
+              <h3 class="font-medium text-text">{f.title}</h3>
+              <p class="mt-1 text-sm text-text-2 leading-relaxed" data-de={f.de} data-en={f.en}></p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="pb-16 sm:pb-20">
+      <div class="rounded-2xl bg-[#2196F3]/[0.07] border border-[#2196F3]/20 p-8 sm:p-10">
+        <p class="text-center text-[#60a5fa] font-medium text-sm tracking-wide mb-1" data-de="Kein Abo. Keine Paywalls." data-en="No subscription. No paywalls."></p>
+        <h3 class="text-xl font-bold text-center sm:text-2xl" data-de="Alle Features. Kostenlos." data-en="All features. Free."></h3>
+        <div class="mt-8 grid gap-y-4 gap-x-8 sm:grid-cols-2 max-w-xl mx-auto">
+          <div class="flex items-center gap-3"><span class="text-[#60a5fa] text-lg">✓</span><p class="text-[15px] text-text" data-de="100% lokal — keine Cloud, keine Accounts" data-en="100% local — no cloud, no accounts"></p></div>
+          <div class="flex items-center gap-3"><span class="text-[#60a5fa] text-lg">✓</span><p class="text-[15px] text-text" data-de="Kein Abo, kein Freemium-Trick" data-en="No subscription, no freemium tricks"></p></div>
+          <div class="flex items-center gap-3"><span class="text-[#60a5fa] text-lg">✓</span><p class="text-[15px] text-text" data-de="Dark Mode" data-en="Dark Mode"></p></div>
+          <div class="flex items-center gap-3"><span class="text-[#60a5fa] text-lg">✓</span><p class="text-[15px] text-text" data-de="Deine Daten bleiben auf deinem Gerät" data-en="Your data stays on your device"></p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="pb-16 sm:pb-20">
+      <h2 class="text-xs text-text-3 tracking-widest uppercase mb-6" data-de="Über die App" data-en="About the App"></h2>
+      <div class="space-y-4 text-text-2 leading-relaxed">
+        <p data-de="Taskly ist eine minimalistische Todo-App, die das Wesentliche richtig macht. Erstelle Listen mit eigenen Farben und Icons, füge Todos mit Subtasks, Prioritäten und Fälligkeitsdaten hinzu, und lass dich automatisch erinnern." data-en="Taskly is a minimalist todo app that gets the essentials right. Create lists with custom colors and icons, add todos with subtasks, priorities, and due dates, and get reminded automatically."></p>
+        <p data-de="Alles wird lokal auf deinem Gerät gespeichert — kein Account, keine Cloud, kein Tracking. Exportiere deine Daten jederzeit als JSON-Backup." data-en="Everything is stored locally on your device — no account, no cloud, no tracking. Export your data anytime as a JSON backup."></p>
+      </div>
+    </section>
+
+    <!-- Download CTA -->
+    <section class="pb-16 sm:pb-20">
+      <div class="rounded-xl border border-border bg-surface p-8 sm:p-10 text-center">
+        <h2 class="font-display text-4xl">Taskly</h2>
+        <p class="mt-2 text-text-2" data-de="Bald verfügbar für Android &amp; iOS." data-en="Coming soon to Android &amp; iOS."></p>
+        <div class="mt-6 flex flex-wrap justify-center gap-2">
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm text-text-2">
+            <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+            <span data-de="Play Store — bald" data-en="Play Store — soon"></span>
+          </span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm text-text-2">
+            <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 21.99 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 21.99C7.79 22.03 6.8 20.68 5.96 19.47C4.25 16.97 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
+            <span data-de="App Store — bald" data-en="App Store — soon"></span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Legal -->
+    <div class="pb-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-text-3">
+      <a href="/taskly-privacy" class="hover:text-text-2 transition-colors" data-de="Datenschutzerklärung" data-en="Privacy Policy"></a>
+      <a href="mailto:support@nicogrim.com" class="hover:text-text-2 transition-colors">support@nicogrim.com</a>
+    </div>
+    <footer class="border-t border-border py-8 flex flex-wrap items-center justify-between gap-4 text-sm text-text-3">
+      <a href="/" class="hover:text-text-2 transition-colors">&larr; nicogrim.com</a>
+      <span>&copy; 2026 Nico Grim</span>
+    </footer>
+  </div>
+</BaseLayout>
+
+<script>
+  const els = document.querySelectorAll<HTMLElement>('[data-de]');
+  const saved = localStorage.getItem('lang') as 'de' | 'en' | null;
+  const browserDe = navigator.language.startsWith('de');
+  const lang = saved || (browserDe ? 'de' : 'en');
+  document.documentElement.lang = lang;
+  els.forEach((el) => { el.innerHTML = el.dataset[lang] || ''; });
+</script>
