@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="GRIND Privacy Policy" description="Privacy Policy for GRIND Habit Tracker">
+  <div class="mx-auto max-w-[620px] px-6">
+    <header class="pt-24 pb-12 sm:pt-36">
+      <a href="/grind" class="text-sm text-text-3 hover:text-text-2 transition-colors">&larr; GRIND</a>
+      <h1 class="mt-6 font-display text-4xl sm:text-5xl">GRIND</h1>
+      <p class="mt-2 text-sm text-text-3">Privacy Policy · Last updated: April 2026</p>
+    </header>
+
+    <div class="space-y-8 text-text-2 leading-relaxed pb-20">
+      <div>
+        <h2 class="text-text font-medium mb-2">1. Data Storage</h2>
+        <p>All your data — challenges, routines, habits, streaks, stats — is stored exclusively in a local SQLite database on your device. Nothing is sent to any server. We have no access to your data.</p>
+      </div>
+
+      <div>
+        <h2 class="text-text font-medium mb-2">2. Camera & Photo Verification</h2>
+        <p>GRIND uses your camera for optional photo verification of habits. Photos are analyzed entirely on your device using TensorFlow.js and MobileNet. No image ever leaves your device or is uploaded to any server.</p>
+      </div>
+
+      <div>
+        <h2 class="text-text font-medium mb-2">3. Notifications</h2>
+        <p>GRIND sends local push notifications to remind you of habits. These are processed on your device only and are not shared with third parties.</p>
+      </div>
+
+      <div>
+        <h2 class="text-text font-medium mb-2">4. Crash Reports (Optional)</h2>
+        <p>GRIND optionally uses Sentry for anonymous crash reports. This is disabled by default and can be enabled in Settings. If enabled, only technical error data is sent — no habit content or personal data.</p>
+      </div>
+
+      <div>
+        <h2 class="text-text font-medium mb-2">5. Third-Party Libraries</h2>
+        <p>GRIND uses TensorFlow.js, MobileNet, and Capacitor — all run locally on your device. No personal data is shared with these libraries.</p>
+      </div>
+
+      <div>
+        <h2 class="text-text font-medium mb-2">6. Backup & Export</h2>
+        <p>You can export all your data as a JSON file at any time. Exported files are stored locally. Sharing them is your responsibility.</p>
+      </div>
+
+      <div>
+        <h2 class="text-text font-medium mb-2">7. No Account Required</h2>
+        <p>GRIND requires no registration and collects no personal information like email addresses, names, or phone numbers.</p>
+      </div>
+
+      <div>
+        <h2 class="text-text font-medium mb-2">8. Data Deletion</h2>
+        <p>Uninstalling the app removes all data. You can also reset all data from within the app settings.</p>
+      </div>
+
+      <div>
+        <h2 class="text-text font-medium mb-2">9. Contact</h2>
+        <p>Questions about privacy? <a href="mailto:nicogrim12@gmail.com" class="underline underline-offset-2 hover:text-link-hover transition-colors">nicogrim12@gmail.com</a></p>
+      </div>
+    </div>
+
+    <footer class="border-t border-border py-8 text-sm text-text-3">
+      <a href="/grind" class="hover:text-text-2 transition-colors">&larr; GRIND</a>
+    </footer>
+  </div>
+</BaseLayout>

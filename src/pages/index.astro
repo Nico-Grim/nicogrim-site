@@ -6,6 +6,7 @@ const projects = [
   { name: 'BRP Deutsch', de: 'Lern-App für die Deutsch-Matura', en: 'Study app for the German Matura exam', url: 'https://deutsch-matura.nico-grim.me' },
   { name: 'BRP Mathe', de: 'Lern-App für die Mathe-Matura', en: 'Study app for the Math Matura exam', url: null },
   { name: 'Daily Tools', de: '20+ Browser-Tools, kostenlos, ohne Anmeldung', en: '20+ browser tools, free, no signup', url: null },
+  { name: 'GRIND', de: 'Challenge-basierter Habit Tracker mit Streaks & Routinen', en: 'Challenge-based habit tracker with streaks & routines', url: '/grind' },
   { name: 'Taskly', de: 'Einfache Todo-App mit Listen, Subtasks & Erinnerungen', en: 'Simple todo app with lists, subtasks & reminders', url: '/taskly' },
   { name: 'FLACON', de: 'Parfum-Sammlungs-App', en: 'Perfume collection app', url: null },
 ];
@@ -57,13 +58,24 @@ const projects = [
           </div>
           <span class="text-text-3 group-hover:text-text-2 group-hover:translate-x-0.5 transition-all shrink-0 text-lg">→</span>
         </a>
+        <a href="/grind" class="group flex items-center gap-5 rounded-xl border border-border bg-surface p-4 sm:p-5 transition-all hover:border-text-3 hover:bg-surface-hover">
+          <img src="/images/grind-icon.png" alt="GRIND" class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2.5">
+              <span class="font-display text-xl sm:text-2xl text-text group-hover:text-link-hover transition-colors">GRIND</span>
+              <span class="rounded-full bg-[#34a853]/15 text-[#34a853] text-[11px] px-2 py-0.5" data-de="Bald verfügbar" data-en="Coming soon"></span>
+            </div>
+            <p class="text-text-2 text-sm mt-0.5" data-de="Challenge-basierter Habit Tracker mit Streaks &amp; Routinen" data-en="Challenge-based habit tracker with streaks &amp; routines"></p>
+          </div>
+          <span class="text-text-3 group-hover:text-text-2 group-hover:translate-x-0.5 transition-all shrink-0 text-lg">→</span>
+        </a>
       </div>
     </section>
 
     <!-- Other Projects -->
     <section class="pb-20 sm:pb-28">
       <div class="space-y-3">
-        {projects.filter(p => p.name !== 'Pinned.' && p.name !== 'Taskly').map((p) => {
+        {projects.filter(p => p.name !== 'Pinned.' && p.name !== 'Taskly' && p.name !== 'GRIND').map((p) => {
           const isExternal = p.url?.startsWith('http');
           return (
             <a

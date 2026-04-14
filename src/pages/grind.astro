@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const features = [
+  { emoji: '🔥', titleDe: 'Streaks', titleEn: 'Streaks', de: 'Halte deine Serie am Laufen. An schlechten Tagen reichen 2 Minuten um den Streak zu retten.', en: 'Keep your streak alive. On bad days, 2 minutes is enough to save the streak.' },
+  { emoji: '🎯', titleDe: 'Challenges', titleEn: 'Challenges', de: 'Zeitbasierte Challenges mit mehreren Habits. 30 Tage, ein Ziel, voller Fokus.', en: 'Time-boxed challenges with multiple habits. 30 days, one goal, full focus.' },
+  { emoji: '🔁', titleDe: 'Routinen', titleEn: 'Routines', de: 'Laufende Gewohnheiten ohne Enddatum. Dein täglicher Stack mit Timer und Checklisten.', en: 'Ongoing habits without end date. Your daily stack with timer and checklists.' },
+  { emoji: '📸', titleDe: 'Foto-Verifikation', titleEn: 'Photo Verification', de: 'KI erkennt ob du trainiert, gelesen oder Obst gegessen hast — komplett offline auf deinem Gerät.', en: 'AI detects if you worked out, read, or ate fruit — completely offline on your device.' },
+  { emoji: '🏆', titleDe: 'Gold Streak', titleEn: 'Gold Streak', de: 'Der ultimative Streak: zählt nur Tage an denen ALLES erledigt wurde. Mit Streak Freezes als Sicherheitsnetz.', en: 'The ultimate streak: counts only days where EVERYTHING was completed. With streak freezes as safety net.' },
+  { emoji: '📊', titleDe: 'Statistiken', titleEn: 'Statistics', de: 'Year in Pixels, persönliche Rekorde, Check-in Zeiten und Wochen-Überblick.', en: 'Year in Pixels, personal records, check-in times, and weekly overview.' },
+];
+---
+
+<BaseLayout title="GRIND — Habit Tracker" description="Challenge-based habit tracker with streaks, routines, and AI photo verification. Free for iOS & Android." ogImage="/images/grind-icon.png">
+
+  <!-- Hero -->
+  <div class="relative overflow-hidden" style="background: linear-gradient(180deg, #1a0f00 0%, #0e0e0e 100%);">
+    <div class="mx-auto max-w-[720px] px-6 pt-24 pb-14 sm:pt-32 sm:pb-20">
+      <div class="flex items-center justify-between">
+        <a href="/" class="text-sm text-text-3 hover:text-text-2 transition-colors">&larr; nicogrim.com</a>
+        <button id="lang-toggle" class="text-sm text-text-3 hover:text-text-2 transition-colors cursor-pointer">EN</button>
+      </div>
+
+      <div class="mt-10 flex items-end gap-5">
+        <img src="/images/grind-icon.png" alt="GRIND" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl shrink-0" />
+        <div>
+          <h1 class="font-display text-[clamp(3rem,10vw,5rem)] leading-[0.9] tracking-tight">GRIND</h1>
+          <p class="mt-1 text-xl text-text-2">Habit Tracker</p>
+        </div>
+      </div>
+
+      <p class="mt-6 text-lg text-text-2 leading-relaxed max-w-[500px]" data-de="Challenge-basierter Habit Tracker. Kein Guilt-Tripping, kein Gamification-Bloat — nur du und dein Streak." data-en="Challenge-based habit tracker. No guilt-tripping, no gamification bloat — just you and your streak."></p>
+
+      <div class="mt-8 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-text-2">
+          <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 21.99 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 21.99C7.79 22.03 6.8 20.68 5.96 19.47C4.25 16.97 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
+          <span data-de="App Store — bald" data-en="App Store — soon"></span>
+        </span>
+        <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-text-2">
+          <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+          <span data-de="Play Store — bald" data-en="Play Store — soon"></span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-[720px] px-6">
+
+    <!-- Features -->
+    <section class="py-16 sm:py-20">
+      <h2 class="text-xs text-text-3 tracking-widest uppercase mb-8" data-de="Features" data-en="Features"></h2>
+      <div class="grid gap-4 sm:grid-cols-2">
+        {features.map((f) => (
+          <div class="rounded-xl border border-border bg-surface p-5 flex gap-4">
+            <span class="text-2xl shrink-0">{f.emoji}</span>
+            <div>
+              <h3 class="font-medium text-text" data-de={f.titleDe} data-en={f.titleEn}></h3>
+              <p class="mt-1 text-sm text-text-2 leading-relaxed" data-de={f.de} data-en={f.en}></p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="pb-16 sm:pb-20">
+      <div class="rounded-2xl bg-[#FF6B35]/[0.07] border border-[#FF6B35]/20 p-8 sm:p-10">
+        <p class="text-center text-[#FF6B35] font-medium text-sm tracking-wide mb-1" data-de="Kein Abo. Keine Paywalls." data-en="No subscription. No paywalls."></p>
+        <h3 class="text-xl font-bold text-center sm:text-2xl" data-de="Alle Features. Kostenlos." data-en="All features. Free."></h3>
+        <div class="mt-8 grid gap-y-4 gap-x-8 sm:grid-cols-2 max-w-xl mx-auto">
+          <div class="flex items-center gap-3"><span class="text-[#FF6B35] text-lg">✓</span><p class="text-[15px] text-text" data-de="100% lokal — keine Cloud, keine Accounts" data-en="100% local — no cloud, no accounts"></p></div>
+          <div class="flex items-center gap-3"><span class="text-[#FF6B35] text-lg">✓</span><p class="text-[15px] text-text" data-de="KI-Foto-Erkennung komplett offline" data-en="AI photo recognition completely offline"></p></div>
+          <div class="flex items-center gap-3"><span class="text-[#FF6B35] text-lg">✓</span><p class="text-[15px] text-text" data-de="Backup & Export als JSON" data-en="Backup & export as JSON"></p></div>
+          <div class="flex items-center gap-3"><span class="text-[#FF6B35] text-lg">✓</span><p class="text-[15px] text-text" data-de="Deine Daten bleiben auf deinem Gerät" data-en="Your data stays on your device"></p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="pb-16 sm:pb-20">
+      <h2 class="text-xs text-text-3 tracking-widest uppercase mb-6" data-de="Über die App" data-en="About the App"></h2>
+      <div class="space-y-4 text-text-2 leading-relaxed">
+        <p data-de="GRIND ist ein Habit Tracker der auf Challenges und Streaks setzt. Erstelle zeitbasierte Challenges oder laufende Routinen, tracke deinen Fortschritt und halte deine Serie am Laufen. An schlechten Tagen reichen 2 Minuten — Konsistenz schlägt Intensität." data-en="GRIND is a habit tracker built around challenges and streaks. Create time-boxed challenges or ongoing routines, track your progress, and keep your streak alive. On bad days, 2 minutes is enough — consistency beats intensity."></p>
+        <p data-de="Die App nutzt On-Device KI um Fotos zu verifizieren, hat einen Gold Streak der nur perfekte Tage zählt, und bietet detaillierte Statistiken mit Year-in-Pixels Heatmap. Alles lokal, kein Account nötig." data-en="The app uses on-device AI to verify photos, has a Gold Streak that only counts perfect days, and offers detailed stats with a Year-in-Pixels heatmap. All local, no account needed."></p>
+      </div>
+    </section>
+
+    <!-- Download CTA -->
+    <section class="pb-16 sm:pb-20">
+      <div class="rounded-xl border border-border bg-surface p-8 sm:p-10 text-center">
+        <h2 class="font-display text-4xl">GRIND</h2>
+        <p class="mt-2 text-text-2" data-de="Bald verfügbar für iOS &amp; Android." data-en="Coming soon to iOS &amp; Android."></p>
+        <div class="mt-6 flex flex-wrap justify-center gap-2">
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm text-text-2">
+            <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 21.99 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 21.99C7.79 22.03 6.8 20.68 5.96 19.47C4.25 16.97 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
+            <span data-de="App Store — bald" data-en="App Store — soon"></span>
+          </span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm text-text-2">
+            <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+            <span data-de="Play Store — bald" data-en="Play Store — soon"></span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Legal -->
+    <div class="pb-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-text-3">
+      <a href="/grind-privacy" class="hover:text-text-2 transition-colors" data-de="Datenschutzerklärung" data-en="Privacy Policy"></a>
+      <a href="mailto:support@nicogrim.com" class="hover:text-text-2 transition-colors">support@nicogrim.com</a>
+    </div>
+    <footer class="border-t border-border py-8 flex flex-wrap items-center justify-between gap-4 text-sm text-text-3">
+      <a href="/" class="hover:text-text-2 transition-colors">&larr; nicogrim.com</a>
+      <span>&copy; 2026 Nico Grim</span>
+    </footer>
+  </div>
+</BaseLayout>
+
+<script>
+  const toggle = document.getElementById('lang-toggle')!;
+  const els = document.querySelectorAll<HTMLElement>('[data-de]');
+
+  function setLang(lang: 'de' | 'en') {
+    els.forEach((el) => { el.innerHTML = el.dataset[lang] || ''; });
+    toggle.textContent = lang === 'de' ? 'EN' : 'DE';
+    document.documentElement.lang = lang;
+    localStorage.setItem('lang', lang);
+  }
+
+  const saved = localStorage.getItem('lang') as 'de' | 'en' | null;
+  const browserDe = navigator.language.startsWith('de');
+  setLang(saved || (browserDe ? 'de' : 'en'));
+
+  toggle.addEventListener('click', () => {
+    setLang(document.documentElement.lang === 'de' ? 'en' : 'de');
+  });
+</script>
